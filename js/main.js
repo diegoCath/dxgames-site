@@ -4,28 +4,37 @@ function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
 }
 
+function getScrollY() {
+  const root = document.scrollingElement || document.documentElement;
+  return window.scrollY ?? root.scrollTop ?? 0;
+}
+
 function updateNavProgress() {
-  const y = window.scrollY;
+  const y = getScrollY();
   const progress = clamp(y / SCROLL_RANGE, 0, 1);
   document.documentElement.style.setProperty("--nav-progress", String(progress));
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  updateNavProgress();
+let scrollRafPending = false;
+function scheduleNavProgressUpdate() {
+  if (scrollRafPending) return;
+  scrollRafPending = true;
+  requestAnimationFrame(() => {
+    updateNavProgress();
+    scrollRafPending = false;
+  });
+}
 
-  let ticking = false;
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        updateNavProgress();
-        ticking = false;
-      });
-    },
-    { passive: true }
-  );
+function initNavScroll() {
+  updateNavProgress();
+  window.addEventListener("scroll", scheduleNavProgressUpdate, { passive: true });
+  window.addEventListener("resize", updateNavProgress, { passive: true });
+  window.addEventListener("load", updateNavProgress);
+  window.addEventListener("pageshow", updateNavProgress);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initNavScroll();
 
   const toggle = document.querySelector(".nav-toggle");
   const navLinks = document.querySelector(".nav-links");
