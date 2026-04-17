@@ -52,4 +52,34 @@ document.addEventListener("DOMContentLoaded", () => {
       navLinks.classList.remove("open");
     });
   });
+
+  initGameModals();
 });
+
+function initGameModals() {
+  function openModal(gameSlug) {
+    const modal = document.querySelector(`.game-modal[data-game="${gameSlug}"]`);
+    if (!modal) return;
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeActiveModal() {
+    const active = document.querySelector(".game-modal.active");
+    if (!active) return;
+    active.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  document.querySelectorAll(".icon-square").forEach((btn) => {
+    btn.addEventListener("click", () => openModal(btn.dataset.game));
+  });
+
+  document.querySelectorAll(".game-modal-backdrop").forEach((backdrop) => {
+    backdrop.addEventListener("click", closeActiveModal);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeActiveModal();
+  });
+}
