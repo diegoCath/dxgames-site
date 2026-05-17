@@ -229,23 +229,6 @@ img {
   letter-spacing: -0.02em;
 }
 
-.site-intro {
-  max-width: 720px;
-  margin-bottom: 2rem;
-}
-
-.site-intro h1 {
-  font-size: 2rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 0.5rem;
-}
-
-.site-intro p {
-  color: var(--color-text-muted);
-  max-width: 620px;
-}
-
 /* ── Game Card Grid ───────────────────────────────────────── */
 
 .game-grid {
