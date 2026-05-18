@@ -282,11 +282,11 @@ img {
 .game-card-title-label {
   display: inline-flex;
   align-items: center;
-  color: var(--card-tag-color);
-  background: var(--card-tag-bg);
+  color: #f4c430;
+  background: rgba(244, 196, 48, 0.14);
   border-radius: 999px;
-  padding: 0.15rem 0.45rem;
-  font-size: 0.65rem;
+  padding: 0.1rem 0.35rem;
+  font-size: 0.58rem;
   font-weight: 700;
   line-height: 1.2;
   text-transform: lowercase;
