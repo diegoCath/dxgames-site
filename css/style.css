@@ -273,6 +273,24 @@ img {
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--card-title);
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.game-card-title-label {
+  display: inline-flex;
+  align-items: center;
+  color: var(--card-tag-color);
+  background: var(--card-tag-bg);
+  border-radius: 999px;
+  padding: 0.15rem 0.45rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: lowercase;
+  letter-spacing: 0;
 }
 
 .game-card-links {
