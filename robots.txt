@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dxgames.eu/sitemap.xml
+Sitemap: https://dxgames.cl/sitemap.xml
