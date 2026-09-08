@@ -500,12 +500,56 @@ img {
 /* ── Footer ───────────────────────────────────────────────── */
 
 .site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
   text-align: center;
   padding: 2rem 1.5rem;
   font-size: 0.85rem;
   color: var(--color-text-muted);
   border-top: 1px solid var(--color-border);
   margin-top: 3rem;
+}
+
+.site-footer a {
+  color: var(--card-link);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-footer a:hover {
+  color: var(--card-link-hover);
+}
+
+/* ── Privacy Page ─────────────────────────────────────────── */
+
+.privacy-section {
+  max-width: 720px;
+  margin: 2rem auto 0;
+}
+
+.privacy-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px var(--card-shadow);
+  padding: 2rem;
+}
+
+.privacy-card h1 {
+  color: var(--card-title);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.privacy-card p {
+  color: var(--card-description);
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 /* ── Responsive: Tablet ───────────────────────────────────── */
